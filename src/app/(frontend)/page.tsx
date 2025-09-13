@@ -1,20 +1,18 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { getPayload } from 'payload' // 1. Import getPayload
-import config from '@/payload.config' // 2. Import your config
+import { getPayload } from 'payload'
+import config from '@/payload.config'
+import { Homepage } from '@/payload-types' // 1. Import the type
 import { CtaBanner } from '@/components/CtaBanner'
 
 export default async function Home() {
-  // 3. Initialize the Payload client
-  const payload = await getPayload({
-    config,
-  })
+  const payload = await getPayload({ config })
 
-  // 4. Fetch the global directly
-  const homepage = await payload.findGlobal({
+  // 2. Apply the type here
+  const homepage = (await payload.findGlobal({
     slug: 'homepage',
     depth: 2,
-  })
+  })) as Homepage
 
   if (!homepage) {
     return (
@@ -48,13 +46,15 @@ export default async function Home() {
 
             {/* Right Column: Image */}
             <div className="relative h-96 lg:h-[600px] rounded-lg overflow-hidden">
-              <Image
-                src={hero.image.url}
-                alt={hero.image.alt}
-                fill
-                className="object-cover"
-                priority
-              />
+              {typeof hero.image === 'object' && hero.image?.url && (
+                <Image
+                  src={hero.image.url}
+                  alt={hero.image.alt}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              )}
             </div>
           </div>
         </section>
@@ -67,12 +67,14 @@ export default async function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start max-w-6xl mx-auto">
             {/* Left Column: Single Activities Image */}
             <div className="relative aspect-square rounded-lg overflow-hidden">
-              <Image
-                src={activitiesSection.image.url}
-                alt={activitiesSection.image.alt}
-                fill
-                className="object-cover"
-              />
+              {typeof activitiesSection.image === 'object' && activitiesSection.image?.url && (
+                <Image
+                  src={activitiesSection.image.url}
+                  alt={activitiesSection.image.alt}
+                  fill
+                  className="object-cover"
+                />
+              )}
             </div>
 
             {/* Right Column: Text Content */}
