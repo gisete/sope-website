@@ -18,9 +18,9 @@ type CtaBannerProps = {
 
 export function CtaBanner({ title, text, buttons }: CtaBannerProps) {
   return (
-    <section className="bg-[#E8E0D4] py-12 lg:py-16">
+    <section className="bg-brand-light py-12 lg:py-22">
       <div className="container mx-auto px-6 text-center max-w-4xl">
-        <h2 className="text-2xl lg:text-3xl font-serif mb-4 text-[#A0614A] font-normal">{title}</h2>
+        <h2 className="text-2xl lg:text-3xl font-serif mb-4 text-black font-normal">{title}</h2>
         <p className="text-base lg:text-lg mb-8 text-[#5D4037] leading-relaxed font-light max-w-2xl mx-auto">
           {text}
         </p>

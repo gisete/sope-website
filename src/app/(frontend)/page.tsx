@@ -38,7 +38,7 @@ export default async function Home() {
                 {hero.subtitle}
               </p>
               <Link href={hero.button.link}>
-                <span className="inline-block border border-brand-warm text-brand-warm px-6 py-4 text-sm hover:bg-brand-warm hover:text-white transition-all duration-200 uppercase tracking-wide">
+                <span className="inline-block border border-brand-warm text-brand-warm px-6 py-4 text-sm hover:bg-brand-warm hover:text-white transition-all duration-200 uppercase tracking-wide font-medium rounded-sm">
                   {hero.button.text}
                 </span>
               </Link>
@@ -66,7 +66,7 @@ export default async function Home() {
       {/* Activities Section */}
       <section className="bg-white py-12 lg:py-20">
         <div className="container mx-auto px-6 max-w-7xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 flex justify-center items-center gap-12 lg:gap-16">
             {/* Left Column: Single Activities Image */}
             <div className="relative aspect-square rounded-lg overflow-hidden">
               {typeof activitiesSection.image === 'object' && activitiesSection.image?.url && (
@@ -80,7 +80,7 @@ export default async function Home() {
             </div>
 
             {/* Right Column: Text Content */}
-            <div className="flex flex-col justify-start lg:pl-8">
+            <div className="flex flex-col lg:pl-8">
               <h2 className="text-3xl lg:text-4xl font-serif mb-6 text-brand-warm">
                 {activitiesSection.title}
               </h2>
@@ -88,7 +88,7 @@ export default async function Home() {
                 {activitiesSection.text}
               </p>
               <Link href={activitiesSection.button.link}>
-                <span className="inline-block bg-brand-accent text-white px-8 py-3 text-sm hover:bg-opacity-90 transition-all duration-200 uppercase tracking-wide self-start">
+                <span className="inline-block border border-brand-warm text-brand-warm px-6 py-4 text-sm hover:bg-brand-warm hover:text-white transition-all duration-200 uppercase tracking-wide font-medium rounded-sm">
                   {activitiesSection.button.text}
                 </span>
               </Link>
