@@ -31,13 +31,13 @@ export function CtaBanner({ title, text, buttons }: CtaBannerProps) {
               // Choose the style based on the 'style' field from the CMS
               const buttonStyle =
                 button.style === 'fill'
-                  ? 'bg-brand-accent text-white hover:bg-opacity-90'
+                  ? 'bg-brand-accent border border-brand-accent text-brand-dark  hover:bg-opacity-90'
                   : 'border border-brand-warm text-brand-warm hover:bg-brand-warm hover:text-white'
 
               return (
                 <Link key={index} href={button.link}>
                   <span
-                    className={`inline-block px-8 py-3 text-sm transition-all duration-200 uppercase tracking-wide ${buttonStyle}`}
+                    className={`inline-block px-10 py-4 text-sm font-medium rounded-sm transition-all duration-200 uppercase tracking-wide ${buttonStyle}`}
                   >
                     {button.text}
                   </span>

@@ -64,7 +64,7 @@ export default async function Home() {
       <CtaBanner {...ctaBanner} />
 
       {/* Activities Section */}
-      <section className="bg-white py-12 lg:py-22">
+      <section className="bg-white py-14 lg:py-24">
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 flex justify-center items-center gap-12 lg:gap-16">
             {/* Left Column: Single Activities Image */}

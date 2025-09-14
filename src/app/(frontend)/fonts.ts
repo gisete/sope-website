@@ -2,7 +2,7 @@ import { Crimson_Pro, Nunito_Sans } from 'next/font/google'
 
 export const crimsonPro = Crimson_Pro({
   subsets: ['latin'],
-  weight: ['300', '500'],
+  weight: ['300', '400', '500'],
   variable: '--font-crimson-pro',
   display: 'swap',
 })

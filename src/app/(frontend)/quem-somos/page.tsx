@@ -22,27 +22,21 @@ export default async function QuemSomosPage() {
 
   return (
     <main>
-      {/* Hero Section */}
       <section className="py-12 lg:py-20">
-        <div className="container mx-auto px-6 max-w-7xl">
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+        <div className="container mx-auto px-6 max-w-6xl">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-14 items-center">
             {/* Left Column: Text Content */}
-            <div className="flex flex-col items-start text-left flex-shrink-0 w-full lg:w-2/5">
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-serif mb-6 text-brand-warm leading-tight">
+            <div className="flex flex-col items-start text-left flex-shrink-0 w-full lg:w-2/6">
+              <h1 className="text-4xl lg:text-6xl xl:text-6xl font-serif mb-4 lg:mb-6 text-brand-warm leading-tight">
                 {hero.title}
               </h1>
-              <div className="space-y-4 mb-8">
-                {hero.description &&
-                  hero.description.split('\n').map((line: string, index: number) => (
-                    <p key={index} className="text-base lg:text-lg text-brand-dark leading-relaxed">
-                      {line}
-                    </p>
-                  ))}
-              </div>
+              <p className="text-base lg:text-lg mb-8 text-brand-dark leading-relaxed max-w-md">
+                {hero.description}
+              </p>
             </div>
 
             {/* Right Column: Image */}
-            <div className="relative h-80 lg:h-96 xl:h-[500px] rounded-lg overflow-hidden flex-1 w-full">
+            <div className="relative h-80 lg:h-96 xl:h-[648px] rounded-sm overflow-hidden flex-1 w-full">
               {typeof hero.image === 'object' && hero.image?.url && (
                 <Image
                   src={hero.image.url}
@@ -58,10 +52,10 @@ export default async function QuemSomosPage() {
       </section>
 
       {/* O Sopé Section - Brown Background */}
-      <section className="bg-brand-warm py-14 lg:py-20">
+      <section className="bg-brand-accent py-18 lg:py-24">
         <div className="container mx-auto px-6 text-center max-w-4xl">
-          <h2 className="text-2xl lg:text-3xl font-serif mb-6 text-white">{oSopeSection.title}</h2>
-          <div className="space-y-4 text-white">
+          <h2 className="text-2xl lg:text-4xl font-serif mb-6 text-black">{oSopeSection.title}</h2>
+          <div className="space-y-4 text-brand-dark">
             {oSopeSection.text &&
               oSopeSection.text.split('\n\n').map((paragraph, index) => (
                 <p key={index} className="text-base lg:text-lg leading-relaxed font-light">
@@ -73,8 +67,8 @@ export default async function QuemSomosPage() {
       </section>
 
       {/* Nossos Princípios Section */}
-      <section className="py-12 lg:py-20">
-        <div className="container mx-auto px-6 max-w-7xl">
+      <section className="py-18 lg:py-24">
+        <div className="container mx-auto px-6 max-w-5xl">
           {principiosSection.content &&
             principiosSection.content.length > 0 &&
             (() => {
@@ -83,10 +77,10 @@ export default async function QuemSomosPage() {
 
               return (
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
-                  {/* Left Side: Image */}
-                  <div className="flex-shrink-0 w-full lg:w-2/5">
+                  {/* Left Side: Image - 50% */}
+                  <div className="flex-shrink-0 w-full lg:w-1/2">
                     {imageBlock && imageBlock.image && (
-                      <div className="relative aspect-square rounded-lg overflow-hidden max-w-md mx-auto lg:mx-0">
+                      <div className="relative h-96 lg:h-[550px] rounded-sm overflow-hidden w-full">
                         {typeof imageBlock.image === 'object' && imageBlock.image?.url && (
                           <Image
                             src={imageBlock.image.url}
@@ -99,18 +93,24 @@ export default async function QuemSomosPage() {
                     )}
                   </div>
 
-                  {/* Right Side: Content */}
-                  <div className="flex-1 space-y-6">
+                  {/* Right Side: Content - 50% */}
+                  <div className="flex-shrink-0 w-full lg:w-1/2 space-y-6">
                     <h2 className="text-3xl lg:text-4xl font-serif text-brand-warm">
                       {principiosSection.title}
                     </h2>
                     {textBlocks.map((textBlock, index) => (
-                      <p
-                        key={index}
-                        className="text-base lg:text-lg text-brand-dark leading-relaxed"
-                      >
-                        {textBlock.text}
-                      </p>
+                      <div key={index} className="space-y-4">
+                        {textBlock.text &&
+                          textBlock.text.length > 0 &&
+                          textBlock.text.split('\n\n').map((paragraph, paragraphIndex) => (
+                            <p
+                              key={paragraphIndex}
+                              className="text-base pb-2 lg:text-base text-brand-dark leading-relaxed"
+                            >
+                              {paragraph}
+                            </p>
+                          ))}
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -121,10 +121,10 @@ export default async function QuemSomosPage() {
 
       {/* O Que Pretendemos Section */}
       <section className="py-12 lg:py-20">
-        <div className="container mx-auto px-6 max-w-7xl">
+        <div className="container mx-auto px-6 max-w-5xl">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
-            {/* Left Side: Text Content */}
-            <div className="flex-1 order-2 lg:order-1">
+            {/* Left Side: Text Content - 50% */}
+            <div className="flex-shrink-0 w-full lg:w-1/2 order-2 lg:order-1">
               <h2 className="text-3xl lg:text-4xl font-serif mb-8 text-brand-warm">
                 {pretendemoSection.title}
               </h2>
@@ -134,7 +134,7 @@ export default async function QuemSomosPage() {
                   pretendemoSection.bulletPoints.map((point, index) => (
                     <li key={index} className="flex items-start space-x-3">
                       <span className="flex-shrink-0 w-2 h-2 bg-brand-warm rounded-full mt-3"></span>
-                      <span className="text-base lg:text-lg text-brand-dark leading-relaxed">
+                      <span className="text-base lg:text-base text-brand-dark leading-relaxed">
                         {point.text}
                       </span>
                     </li>
@@ -142,10 +142,10 @@ export default async function QuemSomosPage() {
               </ul>
             </div>
 
-            {/* Right Side: Image */}
-            <div className="flex-shrink-0 w-full lg:w-2/5 order-1 lg:order-2">
+            {/* Right Side: Image - 50% */}
+            <div className="flex-shrink-0 w-full lg:w-1/2 order-1 lg:order-2">
               {pretendemoSection.image && (
-                <div className="relative aspect-square rounded-lg overflow-hidden max-w-md mx-auto lg:mx-0">
+                <div className="relative h-96 lg:h-[550px] rounded-sm overflow-hidden w-full">
                   {typeof pretendemoSection.image === 'object' && pretendemoSection.image?.url && (
                     <Image
                       src={pretendemoSection.image.url}
@@ -162,9 +162,9 @@ export default async function QuemSomosPage() {
       </section>
 
       {/* A Nossa Equipa Section */}
-      <section className="py-12 lg:py-20">
+      <section className="py-12 pt-6 lg:pt-10 lg:py-20">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl lg:text-4xl font-serif mb-12 text-brand-warm text-center">
+          <h2 className="text-3xl lg:text-4xl font-serif mb-16 text-brand-warm text-center">
             {equipaSection.title}
           </h2>
 

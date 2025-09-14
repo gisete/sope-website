@@ -3,11 +3,11 @@ import Image from 'next/image'
 
 export async function Footer() {
   return (
-    <footer className="bg-brand-warm text-white py-12">
+    <footer className="bg-brand-warm text-white py-12 mt-6">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           {/* Left Column - Contact Info */}
-          <div className="space-y-6 text-sm">
+          <div className="space-y-6 text-base">
             {/* Address */}
             <div className="flex items-start space-x-2">
               <svg className="w-6 h-6 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -58,7 +58,7 @@ export async function Footer() {
 
           {/* Right Column - Navigation Links */}
           <div className="space-y-4">
-            <div className="grid grid-cols-2 gap-4 text-sm">
+            <div className="grid grid-cols-2 gap-4 text-base">
               <div className="space-y-2">
                 <Link
                   href="/quem-somos"
@@ -96,9 +96,9 @@ export async function Footer() {
 
         {/* Bottom Section - Contact Details */}
         <div className="mt-8 pt-6 border-t border-[#cb8770]">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0 text-sm">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0 text-base">
             {/* Privacy Policy Link */}
-            <div className="flex items-center space-x-4 text-sm">
+            <div className="flex items-center space-x-4 text-base">
               <Link href="/privacy-policy" className="hover:text-brand-accent transition-colors">
                 Política de Privacidade
               </Link>
