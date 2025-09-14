@@ -36,6 +36,7 @@ h5,
 h6 {
   font-family: var(--font-serif);
   font-weight: 500;
+  line-height: 1.1;
 }
 
 /* Smooth transitions for interactive elements */

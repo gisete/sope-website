@@ -31,7 +31,7 @@ export default async function Home() {
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-14 items-center">
             {/* Left Column: Text Content */}
             <div className="flex flex-col items-start text-left flex-shrink-0 w-full lg:w-2/6">
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-serif mb-4 lg:mb-6 text-brand-warm leading-tight">
+              <h1 className="text-4xl lg:text-6xl xl:text-6xl font-serif mb-4 lg:mb-6 text-brand-warm leading-tight">
                 {hero.title}
               </h1>
               <p className="text-base lg:text-lg mb-8 text-brand-dark leading-relaxed max-w-md">
@@ -64,7 +64,7 @@ export default async function Home() {
       <CtaBanner {...ctaBanner} />
 
       {/* Activities Section */}
-      <section className="bg-white py-12 lg:py-20">
+      <section className="bg-white py-12 lg:py-22">
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 flex justify-center items-center gap-12 lg:gap-16">
             {/* Left Column: Single Activities Image */}
