@@ -9,7 +9,7 @@
 
 :root {
   --background: #fdfaf6;
-  --foreground: #3c2913;
+  --foreground: black;
   --font-serif: var(--font-crimson-pro);
   --font-sans: var(--font-nunito-sans);
 }

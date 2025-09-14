@@ -52,7 +52,7 @@ export default async function QuemSomosPage() {
       </section>
 
       {/* O Sopé Section - Brown Background */}
-      <section className="bg-brand-accent py-18 lg:py-24">
+      <section className="bg-brand-light py-18 lg:py-24">
         <div className="container mx-auto px-6 text-center max-w-4xl">
           <h2 className="text-2xl lg:text-4xl font-serif mb-6 text-black">{oSopeSection.title}</h2>
           <div className="space-y-4 text-brand-dark">

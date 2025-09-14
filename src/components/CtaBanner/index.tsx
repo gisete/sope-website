@@ -21,9 +21,7 @@ export function CtaBanner({ title, text, buttons }: CtaBannerProps) {
     <section className="bg-brand-light py-12 lg:py-22">
       <div className="container mx-auto px-6 text-center max-w-4xl">
         <h2 className="text-2xl lg:text-3xl font-serif mb-4 text-black font-normal">{title}</h2>
-        <p className="text-base lg:text-lg mb-8 text-[#5D4037] leading-relaxed font-light max-w-2xl mx-auto">
-          {text}
-        </p>
+        <p className="text-base mb-8 leading-relaxed font-light max-w-2xl mx-auto">{text}</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           {buttons &&
             buttons.length > 0 &&
@@ -31,7 +29,7 @@ export function CtaBanner({ title, text, buttons }: CtaBannerProps) {
               // Choose the style based on the 'style' field from the CMS
               const buttonStyle =
                 button.style === 'fill'
-                  ? 'bg-brand-accent border border-brand-accent text-brand-dark  hover:bg-opacity-90'
+                  ? 'bg-brand-accent border border-brand-accent text-brand-dark hover:bg-opacity-90'
                   : 'border border-brand-warm text-brand-warm hover:bg-brand-warm hover:text-white'
 
               return (
