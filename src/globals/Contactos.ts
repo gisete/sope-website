@@ -105,7 +105,7 @@ export const Contactos: GlobalConfig = {
           label: 'Email Address',
           type: 'text',
           required: true,
-          defaultValue: 'sope.silvere@gmail.com',
+          defaultValue: 'sope.arlivre@gmail.com',
         },
         {
           name: 'address',

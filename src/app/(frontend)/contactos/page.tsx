@@ -80,7 +80,7 @@ export default async function ContactosPage() {
 
             <div className="rounded-sm overflow-hidden shadow-lg">
               <iframe
-                src={mapSection.mapEmbedUrl}
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3081.826905594869!2d-8.949342087201506!3d39.428038471497345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd18bb2f5b79bc49%3A0xc09f30f77c295244!2sSop%C3%A9%20Ar%20Livre!5e0!3m2!1sen!2spt!4v1757970458458!5m2!1sen!2spt"
                 width="100%"
                 height="450"
                 style={{ border: 0 }}
