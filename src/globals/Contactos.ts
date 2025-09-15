@@ -31,18 +31,74 @@ export const Contactos: GlobalConfig = {
         },
       ],
     },
-    // Section 2: Contact Information
+    // Section 2: Map Section
+    {
+      name: 'mapSection',
+      label: 'Map Section',
+      type: 'group',
+      fields: [
+        {
+          name: 'title',
+          type: 'text',
+          required: true,
+          defaultValue: 'Encontre-nos',
+        },
+        {
+          name: 'description',
+          type: 'textarea',
+          required: false,
+          defaultValue:
+            'O Sopé desenvolve este projeto num terreno arborizado ao ar livre, localizado no final da Estrada da Charneca, após a casa número 85.',
+        },
+        {
+          name: 'mapEmbedUrl',
+          label: 'Google Maps Embed URL',
+          type: 'text',
+          required: true,
+          admin: {
+            description: 'Paste the full iframe src URL from Google Maps embed',
+          },
+          defaultValue:
+            'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3000!2d-9.0631!3d39.4074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMznCsDI0JzI2LjYiTiA5wrAwMyczNy4xIlc!5e0!3m2!1sen!2spt!4v1234567890',
+        },
+      ],
+    },
+    // Section 3: Contact Information
     {
       name: 'contactInfo',
       label: 'Contact Information',
       type: 'group',
       fields: [
         {
+          name: 'sectionTitle',
+          label: 'Section Title',
+          type: 'text',
+          required: true,
+          defaultValue: 'Informações de Contacto',
+        },
+        {
           name: 'phone',
           label: 'Phone Number',
           type: 'text',
           required: true,
           defaultValue: '+351 950 270 856',
+        },
+        {
+          name: 'whatsappNumber',
+          label: 'WhatsApp Number (for link)',
+          type: 'text',
+          required: true,
+          defaultValue: '351950270856',
+          admin: {
+            description: 'Phone number without spaces or + for WhatsApp link',
+          },
+        },
+        {
+          name: 'whatsappText',
+          label: 'WhatsApp Link Text',
+          type: 'text',
+          required: true,
+          defaultValue: 'Conversar no WhatsApp',
         },
         {
           name: 'email',
@@ -86,6 +142,13 @@ export const Contactos: GlobalConfig = {
           type: 'group',
           fields: [
             {
+              name: 'title',
+              label: 'Social Media Title',
+              type: 'text',
+              required: false,
+              defaultValue: 'Siga-nos',
+            },
+            {
               name: 'instagram',
               label: 'Instagram URL',
               type: 'text',
@@ -101,7 +164,7 @@ export const Contactos: GlobalConfig = {
         },
       ],
     },
-    // Section 3: Contact Form Settings
+    // Section 4: Contact Form Settings
     {
       name: 'contactForm',
       label: 'Contact Form',
@@ -128,7 +191,7 @@ export const Contactos: GlobalConfig = {
         },
       ],
     },
-    // Section 4: Opening Hours (Optional)
+    // Section 5: Opening Hours (Optional)
     {
       name: 'openingHours',
       label: 'Opening Hours',

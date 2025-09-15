@@ -446,8 +446,22 @@ export interface Contacto {
     description?: string | null;
     image: number | Media;
   };
+  mapSection: {
+    title: string;
+    description?: string | null;
+    /**
+     * Paste the full iframe src URL from Google Maps embed
+     */
+    mapEmbedUrl: string;
+  };
   contactInfo: {
+    sectionTitle: string;
     phone: string;
+    /**
+     * Phone number without spaces or + for WhatsApp link
+     */
+    whatsappNumber: string;
+    whatsappText: string;
     email: string;
     address: {
       street: string;
@@ -458,6 +472,7 @@ export interface Contacto {
       description?: string | null;
     };
     socialMedia?: {
+      title?: string | null;
       instagram?: string | null;
       facebook?: string | null;
     };
@@ -659,10 +674,20 @@ export interface ContactosSelect<T extends boolean = true> {
         description?: T;
         image?: T;
       };
+  mapSection?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        mapEmbedUrl?: T;
+      };
   contactInfo?:
     | T
     | {
+        sectionTitle?: T;
         phone?: T;
+        whatsappNumber?: T;
+        whatsappText?: T;
         email?: T;
         address?:
           | T
@@ -674,6 +699,7 @@ export interface ContactosSelect<T extends boolean = true> {
         socialMedia?:
           | T
           | {
+              title?: T;
               instagram?: T;
               facebook?: T;
             };

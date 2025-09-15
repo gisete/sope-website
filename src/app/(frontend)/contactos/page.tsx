@@ -21,85 +21,118 @@ export default async function ContactosPage() {
     )
   }
 
-  const { hero, contactInfo, openingHours } = pageData
+  const { hero, mapSection, contactInfo, openingHours } = pageData
 
   return (
     <main>
-      {/* Hero Section */}
-      <section className="bg-brand-light min-h-[70vh]">
-        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[70vh]">
-          {/* Left Column: Text Content */}
-          <div className="flex flex-col justify-center px-6 lg:px-12 xl:px-16 py-16">
-            <div className="max-w-md">
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-serif mb-6 text-brand-warm leading-tight">
+      {/* Hero Section - Updated to match other pages */}
+      <section className="py-12 lg:py-20 pt-8 lg:pt-8">
+        <div className="container mx-auto px-6 max-w-6xl">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-14 items-center">
+            {/* Left Column: Text Content */}
+            <div className="flex flex-col items-start text-left flex-shrink-0 w-full lg:w-2/6">
+              <h1 className="text-4xl lg:text-6xl xl:text-6xl font-serif mb-4 lg:mb-6 text-brand-warm leading-tight">
                 {hero.title}
               </h1>
               {hero.description && (
-                <div className="space-y-4 mb-8">
+                <div className="space-y-4">
                   {hero.description.split('\n').map((line: string, index: number) => (
-                    <p key={index} className="text-base lg:text-lg text-brand-dark">
+                    <p
+                      key={index}
+                      className="text-base lg:text-lg text-brand-dark leading-relaxed max-w-md"
+                    >
                       {line}
                     </p>
                   ))}
                 </div>
               )}
             </div>
-          </div>
 
-          {/* Right Column: Image */}
-          <div className="relative min-h-[400px] lg:min-h-[70vh]">
-            {typeof hero.image === 'object' && hero.image?.url && (
-              <Image
-                src={hero.image.url}
-                alt={hero.image.alt || 'Sope hero image'} // Provide a fallback alt text
-                fill
-                className="object-cover"
-                priority
-              />
-            )}
+            {/* Right Column: Image */}
+            <div className="relative h-80 lg:h-96 xl:h-[648px] rounded-sm overflow-hidden flex-1 w-full">
+              {typeof hero.image === 'object' && hero.image?.url && (
+                <Image
+                  src={hero.image.url}
+                  alt={hero.image.alt || 'Sope hero image'}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              )}
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Map Section */}
+      {mapSection && (
+        <section className="py-16 bg-brand-light">
+          <div className="container flex align-center flex-col mx-auto px-6 max-w-4xl">
+            <h2 className="text-3xl lg:text-4xl font-serif mb-8 text-brand-warm text-center">
+              {mapSection.title}
+            </h2>
+
+            {mapSection.description && (
+              <p className="text-base self-center lg:text-lg text-brand-dark text-center mb-8 leading-relaxed max-w-2xl">
+                {mapSection.description}
+              </p>
+            )}
+
+            <div className="rounded-sm overflow-hidden shadow-lg">
+              <iframe
+                src={mapSection.mapEmbedUrl}
+                width="100%"
+                height="450"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full"
+              ></iframe>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Contact Information Section */}
       <section className="py-16 lg:py-20">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
+        <div className="container mx-auto px-6 max-w-5xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
             {/* Left Column: Contact Information */}
             <div className="space-y-8">
-              <div>
-                <h2 className="text-3xl lg:text-4xl font-serif mb-8 text-brand-warm">
-                  Informações de Contacto
-                </h2>
+              <h2 className="text-3xl lg:text-4xl font-serif mb-8 text-brand-warm">
+                {contactInfo.sectionTitle}
+              </h2>
 
-                <div className="space-y-6">
-                  {/* Address */}
-                  <div className="flex items-start space-x-4">
-                    <svg
-                      className="w-6 h-6 mt-1 text-brand-warm flex-shrink-0"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <div>
-                      <p className="font-medium text-brand-dark text-lg">
-                        {contactInfo.address.street}
+              <div className="space-y-6">
+                {/* Address */}
+                <div className="flex items-start space-x-4">
+                  <svg
+                    className="w-6 h-6 mt-1 text-brand-warm flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <div>
+                    <p className="font-medium text-brand-dark text-lg">
+                      {contactInfo.address.street}
+                    </p>
+                    <p className="text-brand-dark text-lg">{contactInfo.address.postalCode}</p>
+                    {contactInfo.address.description && (
+                      <p className="text-base text-gray-600 mt-2 leading-relaxed">
+                        {contactInfo.address.description}
                       </p>
-                      <p className="text-brand-dark text-lg">{contactInfo.address.postalCode}</p>
-                      {contactInfo.address.description && (
-                        <p className="text-base text-gray-600 mt-2 leading-relaxed">
-                          {contactInfo.address.description}
-                        </p>
-                      )}
-                    </div>
+                    )}
                   </div>
+                </div>
 
-                  {/* Phone */}
+                {/* Phone with WhatsApp */}
+                <div className="space-y-3">
                   <div className="flex items-center space-x-4">
                     <svg
                       className="w-6 h-6 text-brand-warm flex-shrink-0"
@@ -116,49 +149,67 @@ export default async function ContactosPage() {
                     </a>
                   </div>
 
-                  {/* Email */}
-                  <div className="flex items-center space-x-4">
-                    <svg
-                      className="w-6 h-6 text-brand-warm flex-shrink-0"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                    </svg>
-                    <a
-                      href={`mailto:${contactInfo.email}`}
-                      className="text-brand-dark hover:text-brand-warm transition-colors text-lg"
-                    >
-                      {contactInfo.email}
-                    </a>
-                  </div>
-
-                  {/* Social Media */}
-                  {(contactInfo.socialMedia?.instagram || contactInfo.socialMedia?.facebook) && (
-                    <div>
-                      <h3 className="text-xl font-serif mb-4 text-brand-warm">Siga-nos</h3>
-                      <div className="flex space-x-6">
-                        {contactInfo.socialMedia.instagram && (
-                          <Link
-                            href={contactInfo.socialMedia.instagram}
-                            className="text-brand-dark hover:text-brand-warm transition-colors text-lg"
-                          >
-                            Instagram
-                          </Link>
-                        )}
-                        {contactInfo.socialMedia.facebook && (
-                          <Link
-                            href={contactInfo.socialMedia.facebook}
-                            className="text-brand-dark hover:text-brand-warm transition-colors text-lg"
-                          >
-                            Facebook
-                          </Link>
-                        )}
-                      </div>
-                    </div>
-                  )}
+                  {/* WhatsApp CTA */}
+                  <Link
+                    href={`https://wa.me/${contactInfo.whatsappNumber}`}
+                    target="_blank"
+                    className="flex items-center space-x-3 ml-10 text-brand-dark hover:text-brand-warm transition-colors"
+                  >
+                    <Image
+                      src="/whatsapp.png"
+                      alt="WhatsApp Icon"
+                      width={20}
+                      height={20}
+                      className="flex-shrink-0"
+                    />
+                    <span className="text-base">{contactInfo.whatsappText}</span>
+                  </Link>
                 </div>
+
+                {/* Email */}
+                <div className="flex items-center space-x-4">
+                  <svg
+                    className="w-6 h-6 text-brand-warm flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                  </svg>
+                  <a
+                    href={`mailto:${contactInfo.email}`}
+                    className="text-brand-dark hover:text-brand-warm transition-colors text-lg"
+                  >
+                    {contactInfo.email}
+                  </a>
+                </div>
+
+                {/* Social Media */}
+                {(contactInfo.socialMedia?.instagram || contactInfo.socialMedia?.facebook) && (
+                  <div>
+                    <h3 className="text-xl font-serif mb-4 text-brand-warm">
+                      {contactInfo.socialMedia.title}
+                    </h3>
+                    <div className="flex space-x-6">
+                      {contactInfo.socialMedia.instagram && (
+                        <Link
+                          href={contactInfo.socialMedia.instagram}
+                          className="text-brand-dark hover:text-brand-warm transition-colors text-lg"
+                        >
+                          Instagram
+                        </Link>
+                      )}
+                      {contactInfo.socialMedia.facebook && (
+                        <Link
+                          href={contactInfo.socialMedia.facebook}
+                          className="text-brand-dark hover:text-brand-warm transition-colors text-lg"
+                        >
+                          Facebook
+                        </Link>
+                      )}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 

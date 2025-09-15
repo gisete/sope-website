@@ -26,12 +26,12 @@ export default async function InscricoesPage() {
   return (
     <main>
       {/* Hero Section */}
-      <section className="bg-brand-light min-h-[70vh]">
-        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[70vh]">
-          {/* Left Column: Text Content */}
-          <div className="flex flex-col justify-center px-6 lg:px-12 xl:px-16 py-16">
-            <div className="max-w-md">
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-serif mb-6 text-brand-warm leading-tight">
+      <section className="py-12 lg:py-20 pt-8 lg:pt-8">
+        <div className="container mx-auto px-6 max-w-6xl">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-14 items-center">
+            {/* Left Column: Text Content */}
+            <div className="flex flex-col items-start text-left flex-shrink-0 w-full lg:w-2/6">
+              <h1 className="text-4xl lg:text-6xl xl:text-6xl font-serif mb-4 lg:mb-6 text-brand-warm leading-tight">
                 {hero.title}
               </h1>
               {hero.description && (
@@ -44,26 +44,26 @@ export default async function InscricoesPage() {
                 </div>
               )}
             </div>
-          </div>
 
-          {/* Right Column: Image */}
-          <div className="relative min-h-[400px] lg:min-h-[70vh]">
-            {typeof hero.image === 'object' && hero.image?.url && (
-              <Image
-                src={hero.image.url}
-                alt={hero.image.alt}
-                fill
-                className="object-cover"
-                priority
-              />
-            )}
+            {/* Right Column: Image */}
+            <div className="relative h-80 lg:h-96 xl:h-[648px] rounded-sm overflow-hidden flex-1 w-full">
+              {typeof hero.image === 'object' && hero.image?.url && (
+                <Image
+                  src={hero.image.url}
+                  alt={hero.image.alt}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              )}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Programs Section */}
-      <section className="py-16 lg:py-20">
-        <div className="container mx-auto px-6 space-y-16">
+      <section className="py-16 bg-brand-light lg:py-20 flex align-center justify-center">
+        <div className="container max-w-6xl px-6 space-y-16">
           {programs &&
             programs.length > 0 &&
             programs.map((program, index) => (
