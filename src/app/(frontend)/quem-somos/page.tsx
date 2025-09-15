@@ -22,7 +22,7 @@ export default async function QuemSomosPage() {
 
   return (
     <main>
-      <section className="py-12 lg:py-20">
+      <section className="py-12 lg:py-20 pt-8 lg:pt-8">
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-14 items-center">
             {/* Left Column: Text Content */}
