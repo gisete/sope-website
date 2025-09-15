@@ -92,6 +92,7 @@ export interface Config {
     contactos: Contacto;
     inscricoes: Inscricoe;
     'main-menu': MainMenu;
+    'forest-school': ForestSchool;
   };
   globalsSelect: {
     'quem-somos': QuemSomosSelect<false> | QuemSomosSelect<true>;
@@ -99,6 +100,7 @@ export interface Config {
     contactos: ContactosSelect<false> | ContactosSelect<true>;
     inscricoes: InscricoesSelect<false> | InscricoesSelect<true>;
     'main-menu': MainMenuSelect<false> | MainMenuSelect<true>;
+    'forest-school': ForestSchoolSelect<false> | ForestSchoolSelect<true>;
   };
   locale: null;
   user: User & {
@@ -552,6 +554,49 @@ export interface MainMenu {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "forest-school".
+ */
+export interface ForestSchool {
+  id: number;
+  hero: {
+    title: string;
+    description: string;
+    image: number | Media;
+  };
+  bannerSection: {
+    title: string;
+    text: string;
+  };
+  contentBlocks?:
+    | {
+        title: string;
+        /**
+         * Optional introductory text before the subsections
+         */
+        text?: string | null;
+        subsections?:
+          | {
+              /**
+               * Bold subtitle (e.g., "Sessões regulares na natureza")
+               */
+              subtitle: string;
+              items?:
+                | {
+                    text: string;
+                    id?: string | null;
+                  }[]
+                | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "quem-somos_select".
  */
 export interface QuemSomosSelect<T extends boolean = true> {
@@ -781,6 +826,47 @@ export interface MainMenuSelect<T extends boolean = true> {
     | {
         label?: T;
         link?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "forest-school_select".
+ */
+export interface ForestSchoolSelect<T extends boolean = true> {
+  hero?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+      };
+  bannerSection?:
+    | T
+    | {
+        title?: T;
+        text?: T;
+      };
+  contentBlocks?:
+    | T
+    | {
+        title?: T;
+        text?: T;
+        subsections?:
+          | T
+          | {
+              subtitle?: T;
+              items?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              id?: T;
+            };
         id?: T;
       };
   updatedAt?: T;

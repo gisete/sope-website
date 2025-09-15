@@ -14,6 +14,7 @@ import { Contactos } from './globals/Contactos'
 import { Inscricoes } from './globals/Inscricoes'
 import { Pages } from './collections/Pages'
 import { MainMenu } from './globals/MainMenu'
+import { ForestSchool } from './globals/ForestSchool'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -26,7 +27,7 @@ export default buildConfig({
     },
   },
   collections: [Users, Media, Pages],
-  globals: [QuemSomos, Homepage, Contactos, Inscricoes, MainMenu],
+  globals: [QuemSomos, Homepage, Contactos, Inscricoes, MainMenu, ForestSchool],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
