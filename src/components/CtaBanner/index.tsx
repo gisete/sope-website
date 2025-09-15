@@ -1,3 +1,4 @@
+// Updated CtaBanner component for src/components/CtaBanner/index.tsx
 'use client'
 
 import Link from 'next/link'
@@ -22,6 +23,8 @@ export function CtaBanner({ title, text, buttons }: CtaBannerProps) {
       <div className="container mx-auto px-6 text-center max-w-4xl">
         <h2 className="text-2xl lg:text-3xl font-serif mb-4 text-black font-normal">{title}</h2>
         <p className="text-base mb-8 leading-relaxed font-light max-w-2xl mx-auto">{text}</p>
+
+        {/* Updated button container for mobile */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           {buttons &&
             buttons.length > 0 &&
@@ -33,9 +36,9 @@ export function CtaBanner({ title, text, buttons }: CtaBannerProps) {
                   : 'border border-brand-warm text-brand-warm hover:bg-brand-warm hover:text-white'
 
               return (
-                <Link key={index} href={button.link}>
+                <Link key={index} href={button.link} className="w-full sm:w-auto">
                   <span
-                    className={`inline-block px-10 py-4 text-sm font-medium rounded-sm transition-all duration-200 uppercase tracking-wide ${buttonStyle}`}
+                    className={`block w-full sm:inline-block px-10 py-4 text-sm font-medium rounded-sm transition-all duration-200 uppercase tracking-wide text-center ${buttonStyle}`}
                   >
                     {button.text}
                   </span>

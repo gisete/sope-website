@@ -5,8 +5,8 @@ import { Footer } from '@/components/Footer'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Sópé Forest School',
-  description: 'Aprendizagem ao ar livre',
+  title: 'Sópé',
+  description: 'Forest School - Projeto de aprendizagem ao ar livre',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
