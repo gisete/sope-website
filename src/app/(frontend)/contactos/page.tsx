@@ -26,7 +26,7 @@ export default async function ContactosPage() {
   return (
     <main>
       {/* Hero Section - Updated to match other pages */}
-      <section className="py-12 lg:py-20 pt-8 lg:pt-8">
+      <section className="py-12 lg:py-20 pt-8 mb-6 lg:pt-8">
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-14 items-center">
             {/* Left Column: Text Content */}
@@ -95,6 +95,7 @@ export default async function ContactosPage() {
       )}
 
       {/* Contact Information Section */}
+
       <section className="py-16 lg:py-20">
         <div className="container mx-auto px-6 max-w-5xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
@@ -103,6 +104,59 @@ export default async function ContactosPage() {
               <h2 className="text-3xl lg:text-4xl font-serif mb-8 text-brand-warm">
                 {contactInfo.sectionTitle}
               </h2>
+
+              {/* Phone with WhatsApp */}
+              <div className="space-y-3">
+                {/* WhatsApp CTA */}
+                <Link
+                  href={`https://wa.me/${contactInfo.whatsappNumber}`}
+                  target="_blank"
+                  className="flex items-center space-x-3 text-brand-dark hover:text-brand-warm transition-colors"
+                >
+                  <Image
+                    src="/whatsapp.png"
+                    alt="WhatsApp Icon"
+                    width={28}
+                    height={28}
+                    className="flex-shrink-0"
+                  />
+                  <span className="text-base">{contactInfo.whatsappText}</span>
+                </Link>
+
+                <div className="flex items-center space-x-4">
+                  <svg
+                    className="w-6 h-6 text-brand-warm flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                  </svg>
+                  <a
+                    href={`tel:${contactInfo.phone}`}
+                    className="text-brand-dark hover:text-brand-warm transition-colors text-base"
+                  >
+                    {contactInfo.phone}
+                  </a>
+                </div>
+              </div>
+
+              {/* Email */}
+              <div className="flex items-center space-x-4">
+                <svg
+                  className="w-6 h-6 text-brand-warm flex-shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                </svg>
+                <a
+                  href={`mailto:${contactInfo.email}`}
+                  className="text-brand-dark hover:text-brand-warm transition-colors text-base"
+                >
+                  {contactInfo.email}
+                </a>
+              </div>
 
               <div className="space-y-6">
                 {/* Address */}
@@ -119,69 +173,16 @@ export default async function ContactosPage() {
                     />
                   </svg>
                   <div>
-                    <p className="font-medium text-brand-dark text-lg">
+                    <p className="font-medium text-brand-dark text-base">
                       {contactInfo.address.street}
                     </p>
-                    <p className="text-brand-dark text-lg">{contactInfo.address.postalCode}</p>
+                    <p className="text-brand-dark text-base">{contactInfo.address.postalCode}</p>
                     {contactInfo.address.description && (
                       <p className="text-base text-gray-600 mt-2 leading-relaxed">
                         {contactInfo.address.description}
                       </p>
                     )}
                   </div>
-                </div>
-
-                {/* Phone with WhatsApp */}
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-4">
-                    <svg
-                      className="w-6 h-6 text-brand-warm flex-shrink-0"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                    </svg>
-                    <a
-                      href={`tel:${contactInfo.phone}`}
-                      className="text-brand-dark hover:text-brand-warm transition-colors text-lg"
-                    >
-                      {contactInfo.phone}
-                    </a>
-                  </div>
-
-                  {/* WhatsApp CTA */}
-                  <Link
-                    href={`https://wa.me/${contactInfo.whatsappNumber}`}
-                    target="_blank"
-                    className="flex items-center space-x-3 ml-10 text-brand-dark hover:text-brand-warm transition-colors"
-                  >
-                    <Image
-                      src="/whatsapp.png"
-                      alt="WhatsApp Icon"
-                      width={20}
-                      height={20}
-                      className="flex-shrink-0"
-                    />
-                    <span className="text-base">{contactInfo.whatsappText}</span>
-                  </Link>
-                </div>
-
-                {/* Email */}
-                <div className="flex items-center space-x-4">
-                  <svg
-                    className="w-6 h-6 text-brand-warm flex-shrink-0"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                  </svg>
-                  <a
-                    href={`mailto:${contactInfo.email}`}
-                    className="text-brand-dark hover:text-brand-warm transition-colors text-lg"
-                  >
-                    {contactInfo.email}
-                  </a>
                 </div>
 
                 {/* Social Media */}

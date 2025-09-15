@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export async function Footer() {
   return (
-    <footer className="bg-brand-warm text-white py-12 mt-6">
+    <footer className="bg-brand-warm text-white py-12">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           {/* Left Column - Contact Info */}
