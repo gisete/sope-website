@@ -113,12 +113,12 @@ export default async function InscricoesPage() {
                       {/* Action Buttons */}
                       <div className="flex flex-col sm:flex-row gap-4">
                         <Link href={program.buttons.inscricaoButton.link}>
-                          <span className="inline-block bg-brand-accent text-white px-6 py-3 text-sm font-medium hover:bg-opacity-90 transition-all duration-200 text-center min-w-[140px]">
+                          <span className="inline-block px-10 py-4 text-sm font-medium rounded-sm transition-all duration-200 uppercase tracking-wide inline-block bg-brand-accent border border-brand-accent text-brand-dark hover:bg-opacity-90">
                             {program.buttons.inscricaoButton.text}
                           </span>
                         </Link>
                         <Link href={program.buttons.informacoesButton.link}>
-                          <span className="inline-block border border-brand-dark text-brand-dark px-6 py-3 text-sm font-medium hover:bg-brand-dark hover:text-white transition-all duration-200 text-center min-w-[140px]">
+                          <span className="inline-block px-10 py-4 text-sm font-medium rounded-sm transition-all duration-200 uppercase tracking-wide border border-brand-warm text-brand-warm hover:bg-brand-warm hover:text-white">
                             {program.buttons.informacoesButton.text}
                           </span>
                         </Link>
