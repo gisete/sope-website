@@ -5,6 +5,27 @@ export const QuemSomos: GlobalConfig = {
   access: {
     read: () => true, // Make it public
   },
+  hooks: {
+    afterChange: [
+      async ({ doc, req }) => {
+        // Revalidate when homepage changes
+        try {
+          await fetch(`${process.env.NEXTJS_URL || 'http://localhost:3000'}/api/revalidate`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              secret: process.env.REVALIDATE_SECRET,
+              path: '/quem-somos',
+            }),
+          })
+        } catch (error) {
+          console.error('Failed to revalidate homepage:', error)
+        }
+      },
+    ],
+  },
   fields: [
     // Section 1: Hero
     {
