@@ -43,11 +43,11 @@ export default async function Home() {
             </div>
 
             {/* Mobile: Text Second, Desktop: Text First */}
-            <div className="flex flex-col items-start text-left flex-shrink-0 w-full lg:w-2/6 order-2 lg:order-1">
+            <div className="flex flex-col items-center lg:items-start text-left flex-shrink-0 w-full lg:w-2/6 order-2 lg:order-1 text-center lg:text-left">
               <h1 className="text-4xl lg:text-6xl xl:text-6xl font-serif mb-4 lg:mb-6 text-brand-warm leading-tight">
                 {hero.title}
               </h1>
-              <p className="text-base lg:text-lg mb-8 text-brand-dark leading-relaxed lg:max-w-md">
+              <p className="text-base text-center lg:text-left lg:text-lg mb-8 text-brand-dark leading-relaxed lg:max-w-md">
                 {hero.subtitle}
               </p>
               <Link href={hero.button.link} className="w-full sm:w-auto">
@@ -80,13 +80,13 @@ export default async function Home() {
             </div>
 
             {/* Right Column: Text Content */}
-            <div className="flex flex-col lg:pl-8">
+            <div className="flex flex-col lg:pl-8 text-center lg:text-left">
               <h2 className="text-3xl lg:text-4xl font-serif mb-6 text-brand-warm">
                 {activitiesSection.title}
               </h2>
               <p className="text-base mb-8 leading-relaxed">{activitiesSection.text}</p>
-              <Link href={activitiesSection.button.link}>
-                <span className="inline-block border border-brand-warm text-brand-warm px-6 py-4 text-sm hover:bg-brand-warm hover:text-white transition-all duration-200 uppercase tracking-wide font-medium rounded-sm">
+              <Link href={activitiesSection.button.link} className="w-full lg:w-auto lg:self-start">
+                <span className="block w-full lg:inline-block lg:w-auto border border-brand-warm text-brand-warm px-6 py-4 text-sm hover:bg-brand-warm hover:text-white transition-all duration-200 uppercase tracking-wide font-medium rounded-sm text-center lg:text-left">
                   {activitiesSection.button.text}
                 </span>
               </Link>
