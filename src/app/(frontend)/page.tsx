@@ -44,7 +44,7 @@ export default async function Home() {
 
             {/* Mobile: Text Second, Desktop: Text First */}
             <div className="flex flex-col items-center lg:items-start text-left flex-shrink-0 w-full lg:w-2/6 order-2 lg:order-1 text-center lg:text-left">
-              <h1 className="text-4xl lg:text-6xl xl:text-6xl font-serif mb-4 lg:mb-6 text-brand-warm leading-tight">
+              <h1 className="text-4xl text-center lg:text-left lg:text-6xl xl:text-6xl font-serif mb-4 lg:mb-6 text-brand-warm leading-tight">
                 {hero.title}
               </h1>
               <p className="text-base text-center lg:text-left lg:text-lg mb-8 text-brand-dark leading-relaxed lg:max-w-md">
