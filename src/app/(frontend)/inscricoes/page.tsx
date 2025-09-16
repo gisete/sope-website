@@ -25,12 +25,12 @@ export default async function InscricoesPage() {
 
   return (
     <main>
-      {/* Hero Section */}
+      {/* Hero Section - Updated with your improved version */}
       <section className="py-12 lg:py-20 pt-8 lg:pt-8">
         <div className="container mx-auto px-6 max-w-6xl">
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-14 items-center">
-            {/* Left Column: Text Content */}
-            <div className="flex flex-col items-start text-left flex-shrink-0 w-full lg:w-2/6">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-14 items-center">
+            {/* Mobile: Text Second, Desktop: Text First */}
+            <div className="flex items-center flex-col lg:items-start text-center lg:text-left flex-shrink-0 w-full lg:w-2/6">
               <h1 className="text-4xl lg:text-6xl xl:text-6xl font-serif mb-4 lg:mb-6 text-brand-warm leading-tight">
                 {hero.title}
               </h1>
@@ -45,8 +45,8 @@ export default async function InscricoesPage() {
               )}
             </div>
 
-            {/* Right Column: Image */}
-            <div className="relative h-80 lg:h-96 xl:h-[648px] rounded-sm overflow-hidden flex-1 w-full">
+            {/* Mobile: Image First, Desktop: Image Second */}
+            <div className="relative h-80 lg:h-96 xl:h-[648px] rounded-sm overflow-hidden w-full lg:flex-1">
               {typeof hero.image === 'object' && hero.image?.url && (
                 <Image
                   src={hero.image.url}
@@ -110,15 +110,21 @@ export default async function InscricoesPage() {
                         {program.description}
                       </p>
 
-                      {/* Action Buttons */}
+                      {/* Action Buttons - Full width on mobile */}
                       <div className="flex flex-col sm:flex-row gap-4">
-                        <Link href={program.buttons.inscricaoButton.link}>
-                          <span className="inline-block px-10 py-4 text-sm font-medium rounded-sm transition-all duration-200 uppercase tracking-wide inline-block bg-brand-accent border border-brand-accent text-brand-dark hover:bg-opacity-90">
+                        <Link
+                          href={program.buttons.inscricaoButton.link}
+                          className="w-full sm:w-auto"
+                        >
+                          <span className="block w-full sm:inline-block px-10 py-4 text-sm font-medium rounded-sm transition-all duration-200 uppercase tracking-wide text-center bg-brand-accent border border-brand-accent text-brand-dark hover:bg-opacity-90">
                             {program.buttons.inscricaoButton.text}
                           </span>
                         </Link>
-                        <Link href={program.buttons.informacoesButton.link}>
-                          <span className="inline-block px-10 py-4 text-sm font-medium rounded-sm transition-all duration-200 uppercase tracking-wide border border-brand-warm text-brand-warm hover:bg-brand-warm hover:text-white">
+                        <Link
+                          href={program.buttons.informacoesButton.link}
+                          className="w-full sm:w-auto"
+                        >
+                          <span className="block w-full sm:inline-block px-10 py-4 text-sm font-medium rounded-sm transition-all duration-200 uppercase tracking-wide text-center border border-brand-warm text-brand-warm hover:bg-brand-warm hover:text-white">
                             {program.buttons.informacoesButton.text}
                           </span>
                         </Link>
