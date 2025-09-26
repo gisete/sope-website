@@ -37,7 +37,7 @@ export async function Footer() {
                   height={25}
                   className="flex-shrink-0"
                 />
-                <span>+351 950 270 856</span>
+                <span>+351 960 270 865</span>
               </Link>
 
               {/* Email */}
