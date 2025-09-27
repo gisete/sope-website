@@ -93,6 +93,7 @@ export interface Config {
     inscricoes: Inscricoe;
     'main-menu': MainMenu;
     'forest-school': ForestSchool;
+    atividades: Atividade;
   };
   globalsSelect: {
     'quem-somos': QuemSomosSelect<false> | QuemSomosSelect<true>;
@@ -101,6 +102,7 @@ export interface Config {
     inscricoes: InscricoesSelect<false> | InscricoesSelect<true>;
     'main-menu': MainMenuSelect<false> | MainMenuSelect<true>;
     'forest-school': ForestSchoolSelect<false> | ForestSchoolSelect<true>;
+    atividades: AtividadesSelect<false> | AtividadesSelect<true>;
   };
   locale: null;
   user: User & {
@@ -597,6 +599,37 @@ export interface ForestSchool {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "atividades".
+ */
+export interface Atividade {
+  id: number;
+  hero: {
+    title: string;
+    description?: string | null;
+    image: number | Media;
+  };
+  activityImages: {
+    imageSection1: number | Media;
+    imageSection2: number | Media;
+    imageSection3: number | Media;
+  };
+  ctaBanner: {
+    title: string;
+    text: string;
+    buttons?:
+      | {
+          text: string;
+          link: string;
+          style: 'fill' | 'outline';
+          id?: string | null;
+        }[]
+      | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "quem-somos_select".
  */
 export interface QuemSomosSelect<T extends boolean = true> {
@@ -868,6 +901,43 @@ export interface ForestSchoolSelect<T extends boolean = true> {
               id?: T;
             };
         id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "atividades_select".
+ */
+export interface AtividadesSelect<T extends boolean = true> {
+  hero?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+      };
+  activityImages?:
+    | T
+    | {
+        imageSection1?: T;
+        imageSection2?: T;
+        imageSection3?: T;
+      };
+  ctaBanner?:
+    | T
+    | {
+        title?: T;
+        text?: T;
+        buttons?:
+          | T
+          | {
+              text?: T;
+              link?: T;
+              style?: T;
+              id?: T;
+            };
       };
   updatedAt?: T;
   createdAt?: T;
