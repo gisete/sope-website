@@ -608,19 +608,31 @@ export interface Atividade {
     description?: string | null;
     image: number | Media;
   };
-  activityImages: {
-    imageSection1: number | Media;
-    imageSection2: number | Media;
-    imageSection3: number | Media;
+  activityImages?: {
+    section1Images?: {
+      image1?: (number | null) | Media;
+      image2?: (number | null) | Media;
+      image3?: (number | null) | Media;
+    };
+    section2Images?: {
+      image1?: (number | null) | Media;
+      image2?: (number | null) | Media;
+      image3?: (number | null) | Media;
+    };
+    section3Images?: {
+      image1?: (number | null) | Media;
+      image2?: (number | null) | Media;
+      image3?: (number | null) | Media;
+    };
   };
-  ctaBanner: {
-    title: string;
-    text: string;
+  ctaBanner?: {
+    title?: string | null;
+    text?: string | null;
     buttons?:
       | {
-          text: string;
-          link: string;
-          style: 'fill' | 'outline';
+          text?: string | null;
+          link?: string | null;
+          style?: ('fill' | 'outline') | null;
           id?: string | null;
         }[]
       | null;
@@ -921,9 +933,27 @@ export interface AtividadesSelect<T extends boolean = true> {
   activityImages?:
     | T
     | {
-        imageSection1?: T;
-        imageSection2?: T;
-        imageSection3?: T;
+        section1Images?:
+          | T
+          | {
+              image1?: T;
+              image2?: T;
+              image3?: T;
+            };
+        section2Images?:
+          | T
+          | {
+              image1?: T;
+              image2?: T;
+              image3?: T;
+            };
+        section3Images?:
+          | T
+          | {
+              image1?: T;
+              image2?: T;
+              image3?: T;
+            };
       };
   ctaBanner?:
     | T
