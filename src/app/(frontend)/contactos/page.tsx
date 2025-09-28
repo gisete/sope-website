@@ -3,6 +3,11 @@ import Link from 'next/link'
 import { getPayload } from 'payload'
 import config from '@/payload.config'
 import { Contacto } from '@/payload-types'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Sopé Forest School - Contactos',
+}
 
 export default async function ContactosPage() {
   // Direct database access

@@ -2,7 +2,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { getPayload } from 'payload'
 import config from '@/payload.config'
-import { Inscricoe } from '@/payload-types' // 1. Import the type
+import { Inscricoe } from '@/payload-types'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Sopé Forest School - Inscrições',
+}
 
 export default async function InscricoesPage() {
   const payload = await getPayload({ config })

@@ -1,7 +1,11 @@
 import Image from 'next/image'
 import { getPayload } from 'payload'
 import config from '@/payload.config'
-import { ForestSchool } from '@/payload-types' // You'll need to add this type after generating types
+import { ForestSchool } from '@/payload-types'
+
+export const metadata: Metadata = {
+  title: 'Sopé Forest School - O Modelo Forest School',
+}
 
 export default async function ForestSchoolPage() {
   const payload = await getPayload({ config })
