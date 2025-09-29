@@ -480,7 +480,7 @@ export default async function AtividadesPage() {
                   {/* Inscrição Button */}
                   <div className="pt-4">
                     <a
-                      href="https://forms.gle/X1GeZsBYcc6V5fFp9"
+                      href="https://docs.google.com/forms/d/e/1FAIpQLSeE03aJWCqHMeBP4e5HfTPAdeypA9YU_L88I2JXsljCuZrzjg/viewform?fbclid=PAVERTVgNHOq5leHRuA2FlbQIxMAABp73gZT3jLQAoUTFR7FpQrAaGyeG7m_MTzzfCxNNEFmUzuCz1O0snFwSzOHjg_aem_U1Ok4tnoKpI5wR8GFcP1tg"
                       target="_blank"
                       className="inline-block px-10 py-4 text-sm font-medium rounded-sm transition-all duration-200 uppercase tracking-wide bg-brand-accent border border-brand-accent text-brand-dark hover:bg-opacity-90"
                     >
