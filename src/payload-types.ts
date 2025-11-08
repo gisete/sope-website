@@ -527,9 +527,9 @@ export interface Inscricoe {
             text: string;
             link: string;
           };
-          informacoesButton: {
-            text: string;
-            link: string;
+          informacoesButton?: {
+            text?: string | null;
+            link?: string | null;
           };
         };
         id?: string | null;

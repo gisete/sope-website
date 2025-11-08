@@ -72,15 +72,15 @@ export default async function InscricoesPage() {
           {programs &&
             programs.length > 0 &&
             programs.map((program, index) => (
-              <div key={index} className={`rounded-2xl overflow-hidden`}>
+              <div key={index}>
                 <div
-                  className={`grid grid-cols-1 lg:grid-cols-2 min-h-[400px] ${
+                  className={`grid grid-cols-1 lg:grid-cols-2 min-h-[350px] ${
                     program.imagePosition === 'right' ? 'lg:grid-flow-col-dense' : ''
                   }`}
                 >
                   {/* Image Side */}
                   <div
-                    className={`relative min-h-[300px] lg:min-h-[400px] ${
+                    className={`relative min-h-[250px] lg:min-h-[350px] rounded-sm overflow-hidden ${
                       program.imagePosition === 'right' ? 'lg:col-start-2' : ''
                     }`}
                   >
@@ -125,14 +125,17 @@ export default async function InscricoesPage() {
                             {program.buttons.inscricaoButton.text}
                           </span>
                         </Link>
-                        <Link
-                          href={program.buttons.informacoesButton.link}
-                          className="w-full sm:w-auto"
-                        >
-                          <span className="block w-full sm:inline-block px-10 py-4 text-sm font-medium rounded-sm transition-all duration-200 uppercase tracking-wide text-center border border-brand-warm text-brand-warm hover:bg-brand-warm hover:text-white">
-                            {program.buttons.informacoesButton.text}
-                          </span>
-                        </Link>
+                        {program.buttons.informacoesButton?.link &&
+                          program.buttons.informacoesButton?.text && (
+                            <Link
+                              href={program.buttons.informacoesButton.link}
+                              className="w-full sm:w-auto"
+                            >
+                              <span className="block w-full sm:inline-block px-10 py-4 text-sm font-medium rounded-sm transition-all duration-200 uppercase tracking-wide text-center border border-brand-warm text-brand-warm hover:bg-brand-warm hover:text-white">
+                                {program.buttons.informacoesButton.text}
+                              </span>
+                            </Link>
+                          )}
                       </div>
                     </div>
                   </div>
