@@ -8,6 +8,9 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'Sópé Forest School',
   description: 'Aprendizagem ao ar livre',
+  alternates: {
+    canonical: 'https://www.sopearlivre.com',
+  },
   keywords: [
     'forest school',
     'aprendizagem ao ar livre',
